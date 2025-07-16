@@ -1,26 +1,27 @@
+const loading = document.getElementById("loading");
+const div = document.getElementById("container");
+
+
 async function fetchOffers() {
-    const response = await fetch("https://codepassport.dev/api/offers");
+    const response = await fetch("https://www.codepassport.dev/api/offers");
     const offers = await response.json();
-    console.log(offers);
-}
-fetchOffers();
+  
 
-const div = document.querySelector(".offers");
-
-fetchOffers.forEach(element => {
+offers.forEach(element => {
         //console.log(element)
         let title = document.createElement("h2")
-        div.appendChild(title)
+        divContainer.appendChild(title)
         title.innerHTML = element.titre
 
         let technologie = document.createElement("p")
-        div.appendChild(technologie)
-        technologie.innerHTML = element.technologie[element]
+        divContainer.appendChild(technologie)
+        technologie.innerHTML = element.technologie
 
         let description = document.createElement("p")
-        div.appendChild(description)
+        divContainer.appendChild(description)
         description.innerHTML = element.description
 
     });
+}
 
 fetchOffers()
